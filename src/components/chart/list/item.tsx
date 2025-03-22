@@ -22,7 +22,7 @@ const ChartItem = (props: ChartItemProps) => {
       className='w-full px-1.5 hover:cursor-pointer'
       onClick={() => router.push(`${process.env.NEXT_PUBLIC_DETAIL_URL}/${targetIdx}`)}
     >
-      <Card className='bg-secondary/50 hover:bg-background/80 w-full'>
+      <Card className='hover:bg-secondary/50 bg-secondary/10 w-full'>
         <CardContent className='flex items-center gap-6'>
           <div className='relative h-16 w-16'>
             <Image
