@@ -7,7 +7,7 @@ type BannerDotsProps = {
 const BannerDots = (props: BannerDotsProps) => {
   const { length, currentSlide, onSelect } = props;
   return (
-    <ul className='mt-3 flex justify-center space-x-3'>
+    <ul className='mt-3.5 flex justify-center space-x-3'>
       {Array.from({ length }).map((_, index) => (
         <button
           key={index}

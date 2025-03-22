@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import BannerDots from './banner-dots';
+import BannerShadow from './banner-shadow';
 import { BANNERS } from '@/lib/constants';
 
 const Banner = () => {
@@ -26,15 +27,17 @@ const Banner = () => {
       className='w-full py-4'
       plugins={[
         Autoplay({
-          delay: 3000
+          delay: 3000,
+          stopOnInteraction: false
         })
       ]}
       opts={{
         loop: true
       }}
       setApi={setApi}
+      suppressHydrationWarning
     >
-      <CarouselContent className='-ml-2.5' suppressHydrationWarning>
+      <CarouselContent className='-ml-2.5'>
         {BANNERS.map((banner) => (
           <CarouselItem key={banner.id} className='basis-11/12 pl-2.5'>
             <Link href={banner.link} target='_blank'>
@@ -47,6 +50,7 @@ const Banner = () => {
                   priority
                   fill
                 />
+                <BannerShadow title={banner.title} description={banner.sub} />
               </AspectRatio>
             </Link>
           </CarouselItem>
