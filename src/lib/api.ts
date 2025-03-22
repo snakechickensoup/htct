@@ -1,8 +1,11 @@
+import { cache } from 'react';
 import type { ChartItem, ChartType } from './types';
 
-export const getChartData = async (chartType: ChartType) => {
+export const getChartData = cache(async (chartType: ChartType) => {
   try {
-    const fetched = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${chartType}`);
+    const fetched = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${chartType}`, {
+      cache: 'force-cache'
+    });
     const data: ChartItem[] = await fetched.json();
     return {
       success: true,
@@ -15,4 +18,4 @@ export const getChartData = async (chartType: ChartType) => {
       data: null
     };
   }
-};
+});

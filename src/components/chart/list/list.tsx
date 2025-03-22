@@ -7,7 +7,7 @@ const ChartList = async () => {
     throw Error('오류가 발생했습니다.');
   }
   return (
-    <ul className='from-primary/80 flex-1 bg-linear-to-t to-transparent'>
+    <ul className='from-primary/80 flex-1 overflow-y-auto bg-linear-to-t to-transparent p-2'>
       {data.map((item) => (
         <ChartItem key={item.targetIdx} {...item} />
       ))}
