@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { getChartData } from '@/lib/api';
 import InfiniteChartList from './infinite-list';
 
@@ -10,9 +9,7 @@ const ChartList = async () => {
   return (
     <article className='flex w-full flex-1 flex-col overflow-hidden pt-1'>
       <h2 className='px-3 text-lg font-semibold'>글로벌 월드 차트 - 아티스트</h2>
-      <Suspense fallback={<div>로딩중...</div>}>
-        <InfiniteChartList initialData={data} />
-      </Suspense>
+      <InfiniteChartList initialData={data} />
     </article>
   );
 };

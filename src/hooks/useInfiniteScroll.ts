@@ -11,35 +11,52 @@ type UseInfiniteScroll = (
   ref: (node?: Element | null) => void;
   data: ChartItem[];
   hasMore: boolean;
+  loading: boolean;
 };
 
 export const useInfinteScroll: UseInfiniteScroll = (type, initialData) => {
-  const [data, setData] = useState<ChartItem[]>(initialData);
+  const [data, setData] = useState<ChartItem[]>(initialData || []);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { ref, inView } = useInView({
     rootMargin: '200px'
   });
 
-  const handleFetchMore = async () => {
-    const { success, data } = await getChartData(type, currentIndex + PAGE_SIZE);
-    if (!success || !data) {
-      setHasMore(false);
-      return;
+  useEffect(() => {
+    if (initialData) {
+      setLoading(false);
     }
-    setData((prevData) => [...prevData, ...data]);
-    setCurrentIndex((prevIndex) => prevIndex + PAGE_SIZE);
-    if (data.length < PAGE_SIZE) {
+  }, [initialData]);
+
+  const handleFetchMore = async () => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      const { success, data } = await getChartData(type, currentIndex + PAGE_SIZE);
+      if (!success || !data) {
+        setHasMore(false);
+        return;
+      }
+      setData((prevData) => [...prevData, ...data]);
+      setCurrentIndex((prevIndex) => prevIndex + PAGE_SIZE);
+      if (data.length < PAGE_SIZE) {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error(error);
       setHasMore(false);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (inView && hasMore) {
+    if (inView && hasMore && !loading) {
       handleFetchMore();
     }
-  }, [inView, hasMore]);
+  }, [inView]);
 
-  return { ref, data, hasMore };
+  return { ref, data, hasMore, loading };
 };

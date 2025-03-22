@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import type { ChartItem as ChartItemType } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 type ChartItemProps = {} & ChartItemType;
 
@@ -30,6 +31,8 @@ const ChartItem = (props: ChartItemProps) => {
               alt={targetName}
               className='rounded object-cover'
               sizes='100%'
+              placeholder='blur'
+              blurDataURL={BLUR_DATA_URL}
               fill
             />
           </div>

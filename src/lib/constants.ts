@@ -23,3 +23,6 @@ export const BANNERS = [
 ];
 
 export const PAGE_SIZE = 20;
+
+export const BLUR_DATA_URL =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8duJ8PQAHlwLeSMST4wAAAABJRU5ErkJggg==';
