@@ -24,7 +24,7 @@ const Banner = () => {
 
   return (
     <Carousel
-      className='w-full py-4'
+      className='w-full py-3'
       plugins={[
         Autoplay({
           delay: 3000,
