@@ -3,33 +3,48 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { useEffect, useState } from 'react';
+
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import BannerDots from './banner-dots';
 import { BANNERS } from '@/lib/constants';
 
 const Banner = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrentSlide(api.selectedScrollSnap());
+    api.on('select', () => setCurrentSlide(api.selectedScrollSnap()));
+  }, [api]);
+
   return (
     <Carousel
       className='w-full py-4'
       plugins={[
         Autoplay({
-          delay: 2000
+          delay: 3000
         })
       ]}
       opts={{
         loop: true
       }}
+      setApi={setApi}
     >
-      <CarouselContent className='-ml-2.5'>
+      <CarouselContent className='-ml-2.5' suppressHydrationWarning>
         {BANNERS.map((banner) => (
           <CarouselItem key={banner.id} className='basis-11/12 pl-2.5'>
             <Link href={banner.link} target='_blank'>
-              <AspectRatio ratio={16 / 9} className='relative'>
+              <AspectRatio ratio={16 / 8} className='relative'>
                 <Image
                   src={banner.image}
                   alt={banner.sub}
                   className='rounded-sm object-cover'
-                  priority={banner.id === 1}
+                  sizes='100%'
+                  priority
                   fill
                 />
               </AspectRatio>
@@ -37,6 +52,7 @@ const Banner = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <BannerDots length={BANNERS.length} currentSlide={currentSlide} onSelect={api?.scrollTo} />
     </Carousel>
   );
 };
