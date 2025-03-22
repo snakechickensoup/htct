@@ -21,3 +21,5 @@ export const BANNERS = [
     image: '/images/jenny.png'
   }
 ];
+
+export const PAGE_SIZE = 20;
