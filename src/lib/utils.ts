@@ -7,6 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPathnameIndex(pathname: string) {
-  const link = pathname.split('/')[1];
-  return NAV_LINKS.findIndex((navLink) => navLink.href === link);
+  return NAV_LINKS.findIndex((navLink) => navLink.href === pathname);
+}
+
+export function getIndexPathname(index: number) {
+  return NAV_LINKS[index].href;
 }

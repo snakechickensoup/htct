@@ -12,7 +12,7 @@ type InfiniteChartListProps = {
 const InfiniteChartList = (props: InfiniteChartListProps) => {
   const { data, hasMore, ref, loading } = useInfinteScroll('weekly', props.initialData);
   return (
-    <ul className='from-primary/70 via-secondary flex-1 space-y-0.5 overflow-y-auto bg-linear-to-t from-30% via-80% to-transparent p-2'>
+    <ul className='from-primary/65 via-secondary flex-1 space-y-0.5 overflow-y-auto bg-linear-to-t from-30% via-80% to-transparent p-2'>
       {data.map((item) => (
         <ChartItem key={item.targetIdx} {...item} />
       ))}

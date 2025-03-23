@@ -1,4 +1,6 @@
+import Banner from '../chart/banner/banner';
 import Header from './header';
+import MainCarousel from './main-carousel';
 import Nav from './nav';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -8,7 +10,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <Header>
           <Nav />
         </Header>
-        {children}
+        <main className='flex flex-col items-center overflow-hidden'>
+          <Banner />
+          <MainCarousel>{children}</MainCarousel>
+        </main>
       </div>
     </div>
   );
