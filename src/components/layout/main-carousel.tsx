@@ -45,7 +45,9 @@ const MainCarousel = ({ children }: { children: React.ReactNode }) => {
       opts={{
         align: 'start',
         startIndex: pathnameIndex,
-        loop: false
+        containScroll: 'trimSnaps',
+        dragFree: false,
+        inViewThreshold: 0.5
       }}
       setApi={setApi}
     >
