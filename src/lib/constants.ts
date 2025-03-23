@@ -28,13 +28,11 @@ export const BLUR_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8duJ8PQAHlwLeSMST4wAAAABJRU5ErkJggg==';
 
 export const NAV_LINKS = [
-  { name: '차트', href: '/' },
-  { name: 'Whook', href: '/whook' },
-  { name: '이벤트', href: '/event' },
-  { name: '뉴스', href: '/news' },
-  { name: '스토어', href: '/store' },
-  { name: '충전소', href: '/charger' },
-  { name: '강미정', href: '/snakechickensoup' }
+  { name: '글로벌 차트', href: '/' },
+  { name: '실시간 음원', href: '/real' },
+  { name: '음반', href: '/music' },
+  { name: '소셜', href: '/social' },
+  { name: '스타', href: '/star' }
 ];
 
 export const FOOTER_INFO = [
