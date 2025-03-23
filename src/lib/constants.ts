@@ -36,3 +36,24 @@ export const NAV_LINKS = [
   { name: '충전소', href: '/charger' },
   { name: '강미정', href: '/snakechickensoup' }
 ];
+
+export const FOOTER_INFO = [
+  {
+    id: 'hanteo',
+    info: [
+      { label: '', value: '(주)한터글로벌' },
+      { label: '주소', value: '서울특별시 강남구 봉은사로109길 4' },
+      { label: '대표전화', value: '02.449.2347' },
+      { label: '이메일', value: 'global@hanteo.com' }
+    ]
+  },
+  {
+    id: 'snakechickensoup',
+    info: [
+      { label: '프론트엔드', value: '강미정' },
+      { label: '깃허브', value: 'https://github.com/snakechickensoup' },
+      { label: '전화번호', value: '010-5520-3868' },
+      { label: '이메일', value: 'jagarmj@gmail.com' }
+    ]
+  }
+];

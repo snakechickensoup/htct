@@ -1,5 +1,6 @@
 'use client';
 
+import Footer from '@/components/layout/footer';
 import ChartItem from './item';
 import ChartItemSkeleton from './skeleton';
 import { useInfinteScroll } from '@/hooks/useInfiniteScroll';
@@ -24,6 +25,7 @@ const InfiniteChartList = (props: InfiniteChartListProps) => {
         </>
       )}
       {hasMore && <li ref={ref} className='h-1' aria-hidden='true' />}
+      <Footer />
     </ul>
   );
 };
