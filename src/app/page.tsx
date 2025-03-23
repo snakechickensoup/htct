@@ -9,7 +9,7 @@ const Home = async () => {
   return (
     <article className='flex w-full flex-1 flex-col overflow-hidden pt-1'>
       <h2 className='px-3 pb-0.5 text-lg font-semibold'>글로벌 월드 차트 - 아티스트</h2>
-      <InfiniteChartList initialData={data} />
+      <InfiniteChartList initialData={data} chartType='weekly' />
     </article>
   );
 };

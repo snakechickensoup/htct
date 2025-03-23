@@ -25,7 +25,7 @@ const ChartItem = (props: ChartItemProps) => {
     >
       <Card className='hover:bg-secondary/50 bg-secondary/10 w-full'>
         <CardContent className='flex items-center gap-6'>
-          <div className='relative h-16 w-16'>
+          <div className='relative h-16 w-16 flex-none'>
             <Image
               src={`https://${process.env.NEXT_PUBLIC_RESOURCE_HOST}${targetImg}`}
               alt={targetName}

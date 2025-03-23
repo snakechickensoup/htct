@@ -49,7 +49,7 @@ const MainCarousel = ({ children }: { children: React.ReactNode }) => {
       }}
       setApi={setApi}
     >
-      <CarouselContent className='flex flex-1 overflow-hidden' style={{ display: 'flex' }}>
+      <CarouselContent className='flex flex-1' style={{ display: 'flex' }}>
         {NAV_LINKS.map((_, index) => (
           <CarouselItem key={index} className='flex basis-full'>
             {current === index && children}

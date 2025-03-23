@@ -4,14 +4,16 @@ import Footer from '@/components/layout/footer';
 import ChartItem from './item';
 import ChartItemSkeleton from './skeleton';
 import { useInfinteScroll } from '@/hooks/useInfiniteScroll';
-import type { ChartItem as ChartItemType } from '@/lib/types';
+import type { ChartItem as ChartItemType, ChartType } from '@/lib/types';
 
 type InfiniteChartListProps = {
   initialData: ChartItemType[];
+  chartType: ChartType;
 };
 
 const InfiniteChartList = (props: InfiniteChartListProps) => {
-  const { data, hasMore, ref, loading } = useInfinteScroll('weekly', props.initialData);
+  const { chartType, initialData } = props;
+  const { data, hasMore, ref, loading } = useInfinteScroll(chartType, initialData);
   return (
     <ul className='from-primary/65 via-secondary flex-1 space-y-0.5 overflow-y-auto bg-linear-to-t from-30% via-80% to-transparent p-2'>
       {data.map((item) => (
