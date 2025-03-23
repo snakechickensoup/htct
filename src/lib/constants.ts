@@ -26,3 +26,13 @@ export const PAGE_SIZE = 20;
 
 export const BLUR_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8duJ8PQAHlwLeSMST4wAAAABJRU5ErkJggg==';
+
+export const NAV_LINKS = [
+  { name: '차트', href: '/' },
+  { name: 'Whook', href: '/whook' },
+  { name: '이벤트', href: '/event' },
+  { name: '뉴스', href: '/news' },
+  { name: '스토어', href: '/store' },
+  { name: '충전소', href: '/charger' },
+  { name: '강미정', href: '/snakechickensoup' }
+];
